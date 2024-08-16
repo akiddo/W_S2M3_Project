@@ -100,8 +100,15 @@
     // 🧠 There are many ways to solve this, but practice using a while loop.
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
-    function fightMonsters() {
-
+    function fightMonsters(lifePoints) {
+         let round = 1
+         while (lifePoints > 0) {
+          lifePoints -= round
+          if (lifePoints <= 0) {
+            return `You died in round ${round}`
+          }
+          round++
+         }
     }
 
     // 👉 CHALLENGE 5
@@ -111,8 +118,15 @@
     // findEvenNums([0, 1, 2, 3, 4]) // should return [0, 2, 4]
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
-    function findEvenNums() {
-
+    function findEvenNums(ints) {
+      let evens = []
+      for (let idx in ints) {
+      let num = ints[idx]
+      if (num % 2 === 0) {
+        evens.push(num)
+      }
+      }
+       return evens
     }
 
     // 👉 CHALLENGE 6
@@ -122,8 +136,18 @@
     // 🧠 Ages in the subarrays should appear in the same order they appeared in the original array.
     // 🧠 Examples of usage:
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
-    function separateAges() {
-
+    function separateAges(ages) {
+      let under21 = [];
+      let others = [];
+      for (let idx = 0; idx < ages.length; idx++) {
+        let age = ages[idx];
+        if (age < 21) {
+          under21.push(age);
+        } else {
+          others.push(age);
+        }
+      }
+        return [under21, others];
     }
 
     // 👉 CHALLENGE 7
